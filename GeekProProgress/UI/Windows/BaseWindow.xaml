@@ -1,0 +1,50 @@
+﻿<Window x:Class="GeekProProgress.UI.Windows.BaseWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GeekProProgress.UI.Windows"
+        mc:Ignorable="d"
+        Title="GeekPro Успеваемость" Height="600" Width="1100"
+        MinHeight="600" MinWidth="1100"
+        Icon="/IMG/logo.png">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100*"/>
+            <RowDefinition Height="485*"/>
+            <RowDefinition Height="15*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Background="ForestGreen">
+            <Button Content="Выйти" Width="130" Height="30" Style="{StaticResource ResourceKey=StyleButton}"
+                    HorizontalAlignment="Right" Margin="0,0,10,0"
+                    x:Name="btnExit" Click="btnExit_Click" />
+            <Image Source="/IMG/logo.png" HorizontalAlignment="Left" Margin="15,0,0,0"/>
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock Text="Онлайн школа-программирования GeekPro" Style="{StaticResource ResourceKey=StyleTextLower}"/>
+                <TextBlock Text="Учёт успеваемости" Style="{StaticResource ResourceKey=StyleTextLower}"
+                           HorizontalAlignment="Center"/>
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Row="1" Background="ForestGreen">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="165*"/>
+                <ColumnDefinition Width="816*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel>
+                <RadioButton Style="{StaticResource ResourceKey=rbStyle}" Height="60"
+                             x:Name="rbResults" Content="Успеваемость" Checked="rbResults_Checked" />
+                <RadioButton Style="{StaticResource ResourceKey=rbStyle}" Height="60"
+                             Content="Аналитика" x:Name="rbAnalytics" Checked="rbAnalytics_Checked"  />
+                <RadioButton Style="{StaticResource ResourceKey=rbStyle}" Height="60"
+                             Content="Входы" x:Name="rbAuthUsers" Checked="rbAuthUsers_Checked"  />
+            </StackPanel>
+            <Frame Grid.Column="1" NavigationUIVisibility="Hidden" x:Name="MainFrame"/>
+        </Grid>
+
+        <Grid Grid.Row="2" Background="OrangeRed"/>
+
+    </Grid>
+</Window>

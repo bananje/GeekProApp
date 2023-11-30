@@ -1,0 +1,96 @@
+﻿<Page x:Class="GeekProProgress.UI.Pages.StudentsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:GeekProProgress.UI.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="485" d:DesignWidth="850"
+      Background="LightGreen">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition  />
+            <ColumnDefinition  />
+        </Grid.ColumnDefinitions>
+        <Frame NavigationUIVisibility="Hidden" x:Name="MainFrame" Grid.ColumnSpan="2"/>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40*"/>
+                <RowDefinition Height="425*"/>
+                <RowDefinition Height="40*"/>
+            </Grid.RowDefinitions>
+            <Button Grid.Row="2" Width="120" Height="25"
+                    Style="{StaticResource ResourceKey=StyleButton}"
+                    Content="Назад" x:Name="btnBack" Click="btnBack_Click" 
+                    HorizontalAlignment="Left" Margin="10,0,0,0"/>
+            <TextBlock Text="Добавить новую запись в журнал" 
+                       Style="{StaticResource ResourceKey=StyleTextCaps}"
+                       HorizontalAlignment="Center" x:Name="textBlock"/>
+            <Grid Grid.Row="1" x:Name="column1">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+                <StackPanel VerticalAlignment="Center">
+                    <TextBlock Text="Студент" HorizontalAlignment="Center" Margin="0,0,140,10"
+                               Style="{StaticResource ResourceKey=StyleTextLower}"/>
+                    <ComboBox Width="200" Height="25" x:Name="cmbStudents" DisplayMemberPath="surname"/>
+                </StackPanel>
+                <StackPanel VerticalAlignment="Center" Grid.Row="1">
+                    <TextBlock Text="Оценка" HorizontalAlignment="Center" Margin="0,0,145,10"
+                               Style="{StaticResource ResourceKey=StyleTextLower}"/>
+                    <ComboBox Width="200" Height="25" x:Name="cmbGrade">
+                        <ComboBoxItem Content="2"/>
+                        <ComboBoxItem Content="3"/>
+                        <ComboBoxItem Content="4"/>
+                        <ComboBoxItem Content="5"/>
+                    </ComboBox>
+                </StackPanel>
+                <StackPanel VerticalAlignment="Center" Grid.Row="2">
+                    <TextBlock Text="Наименование работы" HorizontalAlignment="Center" Margin="0,0,30,10"
+                               Style="{StaticResource ResourceKey=StyleTextLower}"/>
+                    <TextBox Width="200" Height="25" x:Name="tbWorkTitle"/>
+                </StackPanel>
+                <StackPanel VerticalAlignment="Center" Grid.Row="3">
+                    <TextBlock Text="Дата выставления" HorizontalAlignment="Center" Margin="0,0,55,10"
+                               Style="{StaticResource ResourceKey=StyleTextLower}"/>
+                    <DatePicker Width="200" Height="25" x:Name="dpDate"/>
+                </StackPanel>
+                <StackPanel VerticalAlignment="Center" Grid.Row="4">
+                    <TextBlock Text="Преподаватель" HorizontalAlignment="Center" Margin="0,0,80,10"
+                               Style="{StaticResource ResourceKey=StyleTextLower}"/>
+                    <ComboBox Width="200" Height="25" x:Name="cmbTeachers" DisplayMemberPath="lName"/>
+                </StackPanel>
+                <Button Grid.Row="6" Width="145" Height="30"
+                        Style="{StaticResource ResourceKey=StyleButton}"
+                        Content="Добавить" x:Name="btnAddEntry" Click="btnAddEntry_Click"/>
+            </Grid>
+        </Grid>
+
+        <GroupBox Grid.Column="1" Margin="5,5,5,5" Foreground="White" x:Name="gpColumn2" Header="Студенты">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="300*"/>
+                    <RowDefinition Height="20*"/>
+                </Grid.RowDefinitions>
+                <Button Grid.Row="1" Width="120" Height="25"
+                        Style="{StaticResource ResourceKey=StyleButton}" Content="Удалить"
+                        HorizontalAlignment="Right" Margin="0,0,10,0"
+                        Name="btnRemove" Click="btnRemove_Click"/>
+                <DataGrid x:Name="dgStudents" AutoGenerateColumns="False" IsReadOnly="True">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Фамилия" Width="*" Binding="{Binding studentsSurname}"/>
+                        <DataGridTextColumn Header="Имя" Width="*" Binding="{Binding studentsName}"/>
+                        <DataGridTextColumn Header="Отчество" Width="*"  Binding="{Binding studentsPatronymic}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </GroupBox>
+    </Grid>
+</Page>

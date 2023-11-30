@@ -1,0 +1,76 @@
+﻿<Window x:Class="GeekProProgress.UI.Windows.Registration"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GeekProProgress.UI.Windows"
+        mc:Ignorable="d"
+       Title="Регистрация" Height="490" Width="420"
+        MaxHeight="490" MaxWidth="420"
+        MinHeight="490" MinWidth="420"
+        Icon="/IMG/logo.png"
+        WindowStartupLocation="CenterScreen" Background="ForestGreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="130"/>
+            <RowDefinition />
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Image Source="/IMG/logo.png"
+                   HorizontalAlignment="Center" Margin="10,10,0,0"/>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="125"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="125"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Vertical">
+                <StackPanel Orientation="Vertical" Grid.Column="1"
+                            VerticalAlignment="Center" Margin="0,20,0,0">
+                    <TextBlock Text="Введите ваше ФИО"
+                           Margin="7,0,0,10" Style="{StaticResource ResourceKey=StyleTextLower}"/>
+                    <TextBox Width="150" x:Name="tbFIO" TabIndex="0"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="1"
+                            VerticalAlignment="Top" Margin="0,20,0,0">
+                    <TextBlock Text="Придумайте логин"
+                           Margin="7,0,0,10" Style="{StaticResource ResourceKey=StyleTextLower}"/>
+                    <TextBox Width="150" x:Name="tbLogin" TabIndex="1"/>
+
+                </StackPanel>
+
+                <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="1"
+                        VerticalAlignment="Bottom" Margin="0,20,0,0">
+                    <TextBlock Text="Придумайте пароль"
+                           Margin="7,0,0,10" Style="{StaticResource ResourceKey=StyleTextLower}"/>
+                    <TextBox Width="150" x:Name="tbPassword" TabIndex="2"/>
+                </StackPanel>
+                <StackPanel>
+                    <CheckBox Content="Преподаватель" Style="{StaticResource ResourceKey=StyleCheckBox}"
+                          HorizontalAlignment="Right" Margin="0,10,15,0" x:Name="cbInputKey" Click="cbInputKey_Click"  />
+                    <TextBox Width="150" x:Name="tbkey" TabIndex="2"
+                         Margin="0,10,0,0" Text="Введите ключ" Visibility="Hidden"/>
+                </StackPanel>
+
+                <Button Grid.Column="1" Grid.Row="2"
+                    Width="120" Height="20"
+                    Margin="0,20,0,0"
+                    Content="Готово"
+                    VerticalAlignment="Center" TabIndex="3"
+                    x:Name="btnRegistration" Style="{StaticResource ResourceKey =StyleButton}" Click="btnRegistration_Click"/>
+            </StackPanel>
+
+            <Label Content="Назад"
+                   x:Name="lbBack" 
+                   Grid.Column="0"
+                   VerticalContentAlignment="Bottom" HorizontalAlignment="Center"
+                   Style="{StaticResource StyleLabelBlock}" TabIndex="4" MouseDown="lbBack_MouseDown"/>
+        </Grid>
+    </Grid>
+</Window>
